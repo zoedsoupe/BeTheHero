@@ -1,0 +1,22 @@
+{
+  "name": "omnistack_11",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mdsp9070/OmniStack_11.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mdsp9070/OmniStack_11/issues"
+  },
+  "homepage": "https://github.com/Mdsp9070/OmniStack_11#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
