@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
-  "scripts": {},
+  "scripts": {
+    "start": "nodemon src/main.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mdsp9070/OmniStack_11.git"
@@ -16,6 +18,11 @@
   },
   "homepage": "https://github.com/Mdsp9070/OmniStack_11#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "knex": "^0.20.13",
+    "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
