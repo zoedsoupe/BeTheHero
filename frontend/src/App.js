@@ -1,21 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
-import Header from "./Header";
+import Logon from "./screens/Logon";
 
 function App() {
-  const [i, setI] = useState(0);
-
-  //Array [valor, value update function]
-
-  function increment() {
-    setI(i + 1);
-  }
-  return (
-    <div>
-      <Header>Contador: {i}</Header>
-      <button onClick={increment}>Incrementar</button>
-    </div>
-  );
+  return <Logon />;
 }
 
 export default App;
