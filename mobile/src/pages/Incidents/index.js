@@ -31,7 +31,6 @@ export default function Incidents() {
     }
 
     setLoading(true);
-    console.log(page);
     const response = await api.get(`incidents?page=${page}`);
 
     setIncidents([...incidents, ...response.data]);

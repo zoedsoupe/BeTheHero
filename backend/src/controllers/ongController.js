@@ -33,7 +33,7 @@ module.exports = {
       .select("id")
       .first();
 
-    if (ong.auth !== auth) {
+    if (!ong) {
       return Response.status(401).json({ error: "Operation not permitted" });
     }
 
