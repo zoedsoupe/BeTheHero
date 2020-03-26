@@ -35,7 +35,7 @@ export default function Incidents() {
   }
 
   function sendWpp() {
-    Linking.openURL(`whatsapp://send?phone=22998399070?text=${message}`);
+    Linking.openURL(`whatsapp://send?phone=${incident.wpp}&text=${message}`);
   }
 
   return (
