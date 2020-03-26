@@ -10,12 +10,12 @@ routes.post("/sessions", sessionsController.create);
 
 routes.get("/ongs", ongController.index);
 routes.post("/ongs", ongController.create);
+routes.delete("/ongs/:auth", ongController.delete);
 
 routes.get("/profile", profileController.index);
 
 routes.get("/incidents", incidentController.index);
 routes.post("/incidents", incidentController.create);
-
 routes.delete("/incidents/:id", incidentController.delete);
 
 module.exports = routes;
