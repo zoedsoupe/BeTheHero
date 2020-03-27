@@ -24,6 +24,7 @@
     "sqlite3": "^4.1.1"
   },
   "devDependencies": {
+    "celebrate": "^12.0.1",
     "nodemon": "^2.0.2"
   }
 }
