@@ -19,7 +19,7 @@ routes.post(
       email: Joi.string()
         .required()
         .email(),
-      wpp: Joi.number()
+      wpp: Joi.string()
         .required()
         .min(10)
         .max(11),
