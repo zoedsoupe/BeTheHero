@@ -33,10 +33,34 @@ routes.post(
 );
 routes.delete("/ongs/:auth", ongController.delete);
 
-routes.get("/profile", profileController.index);
+routes.get(
+  "/profile",
+  celebrate({
+    [Segments.HEADERS]: Joi.object({
+      authorization: Joi.string().required()
+    }).unknown()
+  }),
+  profileController.index
+);
 
-routes.get("/incidents", incidentController.index);
+routes.get(
+  "/incidents",
+  celebrate({
+    [Segments.QUERY]: Joi.object().keys({
+      page: Joi.number()
+    })
+  }),
+  incidentController.index
+);
 routes.post("/incidents", incidentController.create);
-routes.delete("/incidents/:id", incidentController.delete);
+routes.delete(
+  "/incidents/:id",
+  celebrate({
+    [Segments.PARAMS]: Joi.object().keys({
+      id: Joi.number().required()
+    })
+  }),
+  incidentController.delete
+);
 
 module.exports = routes;
