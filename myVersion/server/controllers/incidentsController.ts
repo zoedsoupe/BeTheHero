@@ -2,13 +2,6 @@ import { Request, Response } from "express";
 
 import IncidentsModel from "../database/incidentsModel";
 
-interface Incident extends Document {
-  title: string;
-  description: string;
-  value: number;
-  ongId: string;
-}
-
 class Incidents {
   index = async (req: Request, res: Response) => {
     try {
