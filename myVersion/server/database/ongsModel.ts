@@ -1,5 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
 
+import { Incident } from "../database/incidentsModel";
+
 interface Ong extends Document {
   id: string;
   name: string;
@@ -7,7 +9,7 @@ interface Ong extends Document {
   wpp: string;
   city: string;
   uf: string;
-  incidents: [];
+  incidents?: Incident[];
 }
 
 const ongSchema = new Schema({

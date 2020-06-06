@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 
-import IncidentsModel from "../database/incidentsModel";
+import OngModel from "../database/ongsModel";
+import { IncidentsModel } from "../database/incidentsModel";
+import Ong from "../database/ongsModel";
 
 class Incidents {
   index = async (req: Request, res: Response) => {
@@ -35,9 +37,15 @@ class Incidents {
         ongId,
       };
 
-      const { _id } = await IncidentsModel.create(incident);
+      await OngModel.findOne({ id: ongId }, async (err, foundOng) => {
+        if (foundOng) {
+          const createdIncident = await IncidentsModel.create(incident);
+          foundOng.incidents?.push(createdIncident);
+          foundOng.save();
 
-      return res.json({ _id });
+          return res.json(createdIncident._id);
+        }
+      });
     } catch (err) {
       console.log(err.message);
       return res.status(401).json("Something went wrong!");

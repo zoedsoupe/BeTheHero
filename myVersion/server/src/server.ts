@@ -1,3 +1,5 @@
+import { config } from "dotenv";
+config();
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
@@ -5,7 +7,7 @@ import { errors } from "celebrate";
 
 import routes from "./routes";
 
-const mongoUri = process.env.MONGO_URI || "mongodb://localhost/BeTheHero";
+const mongoUri = process.env.MONGO_URI!;
 
 mongoose
   .connect(mongoUri, {
@@ -23,6 +25,4 @@ app.use(express.json());
 app.use(routes);
 app.use(errors());
 
-app.listen(3333, process.env.IP!, () =>
-  console.log("Server started!!!")
-);
+app.listen(Number(`${process.env.PORT}`), process.env.IP!, () => console.log("Server started!!!"));
