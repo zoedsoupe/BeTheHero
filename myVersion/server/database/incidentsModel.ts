@@ -1,4 +1,10 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
+
+interface Incident extends Document {
+  title: String;
+  description: String;
+  value: number;
+}
 
 const incidentsSchema = new Schema({
   title: String,
@@ -6,6 +12,6 @@ const incidentsSchema = new Schema({
   value: Number,
 });
 
-const Incidents = mongoose.model("Incidents", incidentsSchema);
+const Incidents = mongoose.model<Incident>("Incidents", incidentsSchema);
 
 export default Incidents;
