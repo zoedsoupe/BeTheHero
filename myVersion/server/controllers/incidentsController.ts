@@ -26,10 +26,13 @@ class Incidents {
     try {
       const { title, description, value } = req.body;
 
+      const ongId = req.headers.authorization!;
+
       const incident = {
         title,
         description,
         value,
+        ongId,
       };
 
       const { _id } = await IncidentsModel.create(incident);
@@ -43,6 +46,13 @@ class Incidents {
 
   delete = async (req: Request, res: Response) => {
     const { id } = req.params;
+
+    const ongId = req.headers.authorization!;
+
+    const incident = await IncidentsModel.findOne({ ongId: ongId });
+
+    if (incident?.ongId !== ongId)
+      return res.status(401).json({ error: "Operation not permitted" });
 
     await IncidentsModel.deleteOne({ _id: id });
 
