@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface Incident extends Document {
+export interface Incident extends Document {
   title: String;
   description: String;
   value: number;
@@ -14,6 +14,4 @@ const incidentsSchema = new Schema({
   ongId: String,
 });
 
-const Incidents = mongoose.model<Incident>("Incidents", incidentsSchema);
-
-export default Incidents;
+export const IncidentsModel = mongoose.model<Incident>("Incidents", incidentsSchema);
