@@ -8,7 +8,7 @@ import logo from "../../assets/logo.svg";
 import api from "../../services/api";
 
 const NewIncident = () => {
-  const [title, setTitle] = useState<string>("");
+  const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [value, setValue] = useState("");
 
