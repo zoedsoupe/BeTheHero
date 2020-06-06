@@ -57,7 +57,7 @@ routes.delete(
   "/incidents/:id",
   celebrate({
     params: Joi.object().keys({
-      id: Joi.number().required(),
+      id: Joi.string().required(),
     }),
   }),
   incidentsController.delete
