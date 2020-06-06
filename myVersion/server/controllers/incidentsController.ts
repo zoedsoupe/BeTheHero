@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 
 import OngModel from "../database/ongsModel";
 import { IncidentsModel } from "../database/incidentsModel";
-import Ong from "../database/ongsModel";
 
 class Incidents {
   index = async (req: Request, res: Response) => {
