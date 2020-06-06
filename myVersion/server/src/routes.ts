@@ -3,11 +3,17 @@ import { celebrate, Joi } from "celebrate";
 
 import Ong from "../controllers/ongController";
 import Incident from "../controllers/incidentsController";
+import Session from "../controllers/sessionController";
+import Profile from "../controllers/profileController";
 
 const ongController = new Ong();
 const incidentsController = new Incident();
+const sessionController = new Session();
+const profileController = new Profile();
 
 const routes = Router();
+
+routes.post("/sessions", sessionController.create);
 
 routes.get("/ongs", ongController.index);
 
@@ -23,6 +29,16 @@ routes.post(
     }),
   }),
   ongController.create
+);
+
+routes.get(
+  "/profile",
+  celebrate({
+    headers: Joi.object({
+      authorization: Joi.string().required(),
+    }).unknown(),
+  }),
+  profileController.index
 );
 
 routes.get(
