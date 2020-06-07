@@ -14,9 +14,20 @@ class Incidents {
         .limit(5)
         .skip((Number(page) - 1) * 5);
 
+      const ong = await OngModel.findOne({ id: incidents[0].ongId });
+
+      const response = {
+        incidents,
+        ongName: ong?.name,
+        ongEmail: ong?.email,
+        ongWpp: ong?.wpp,
+        ongCity: ong?.city,
+        ongUf: ong?.uf,
+      };
+
       res.header("X-Total-Count", count.toString());
 
-      return res.json(incidents);
+      return res.json(response);
     } catch (err) {
       console.log(err.message);
       return res.status(401).json("Something went wrong!");
