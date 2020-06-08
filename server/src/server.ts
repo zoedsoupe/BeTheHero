@@ -25,4 +25,6 @@ app.use(express.json());
 app.use(routes);
 app.use(errors());
 
-app.listen(Number(`${process.env.PORT}`), process.env.IP!, () => console.log("Server started!!!"));
+app.listen(Number(`${process.env.PORT}`), () =>
+  console.log("Server started!!!")
+);
