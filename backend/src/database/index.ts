@@ -1,6 +1,6 @@
 import { connect } from "mongoose";
 
-const mongoUri = process.env.MONGO_URI || "mongo://localhost/goBarber";
+const mongoUri = process.env.MONGO_URI || "mongo://localhost/BeTheHero";
 
 connect(mongoUri, {
   useFindAndModify: true,
