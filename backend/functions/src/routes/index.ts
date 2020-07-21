@@ -1,4 +1,5 @@
-import Router, { Joi } from "koa-joi-router";
+import { Router } from "express";
+import { Joi, celebrate } from "celebrate";
 
 import sessionController from "../controllers/session";
 import profileController from "../controllers/profile";
@@ -9,13 +10,11 @@ router.post("/sessions", sessionController.create);
 
 router.get(
   "/profile",
-  {
-    validate: {
-      header: Joi.object({
-        authorization: Joi.string().required(),
-      }).unknown(),
-    },
-  },
+  celebrate({
+    headers: Joi.object({
+      authorization: Joi.string().required(),
+    }).unknown(),
+  }),
   profileController.index
 );
 

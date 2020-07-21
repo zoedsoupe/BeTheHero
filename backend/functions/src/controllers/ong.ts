@@ -1,5 +1,5 @@
-import { Context } from "koa";
-import generateUniqueId from "../../utils/generateUniqueId";
+import { Request, Response } from "express";
+import generateUniqueId from "../utils/generateUniqueId";
 
 import OngModel from "../database/models/ong";
 
@@ -12,14 +12,14 @@ interface IRequest {
 }
 
 class Ong {
-  index = async (ctx: Context) => {
+  index = async (_: Request, res: Response) => {
     const ongs = await OngModel.find();
 
-    return (ctx.body = { ongs });
+    return res.status(200).json(ongs);
   };
 
-  create = async (ctx: Context) => {
-    const { name, email, wpp, city, uf } = <IRequest>ctx.request.body;
+  create = async (req: Request, res: Response) => {
+    const { name, email, wpp, city, uf } = <IRequest>req.body;
 
     const id = generateUniqueId();
 
@@ -34,8 +34,7 @@ class Ong {
 
     await OngModel.create(ong);
 
-    ctx.status = 201;
-    return (ctx.body = { id });
+    return res.status(201).json({ id: id });
   };
 }
 

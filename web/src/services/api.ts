@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
+  baseURL: "https://us-central1-bethehero-mat.cloudfunctions.net/api/",
 });
 
 export default api;
