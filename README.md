@@ -31,7 +31,7 @@ BeTheHero was the project of Omnistack Week by [Rocketseat](https://rocketseat.c
 
 The original project is found on the tar archive on this repository, however I made my version of this project. First, I wrote in TypeScript because it provides a better understanding of all code, TS code can easily be implemented and refactored.
 
-I also changed from [express](https://www.npmjs.com/package/express) to [koa](https://www.npmjs.com/package/koa) on the grounds that koa is promise-bases and middleware orientated. However I got so many bugs with firebase functions, which only accepts express apps, so I rewrote with express to make funtion deploy.
+I also changed from [express](https://www.npmjs.com/package/express) to [koa](https://www.npmjs.com/package/koa) on the grounds that koa is promise-bases and middleware orientated. However I got so many bugs with firebase functions, which only accepts express apps, so I rewrote with express to make funtion deploy. I also tried to reproduce this repository: [koa & firebase](https://github.com/tohagan/firebase-typescript-koa-starter) but no success.
 
 My choice for database was [MongoDB](https://www.mongodb.com/) and I chose [Typegoose](https://www.npmjs.com/package/@typegoose/typegoose) in order to work better with my DB models and properties types.
 
